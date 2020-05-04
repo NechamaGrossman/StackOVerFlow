@@ -4,20 +4,28 @@
     <div class="col-md-6 col-md-offset-3 well">
 
         <form method="post" action="/home/AskAQuestion">
-            <input type="hidden" name="qvm.Question.DatePosted" value="@DateTime.Now" />
-            <input class="form-control" type="text" name="qvm.Question.Title" placeholder="Title" />
+            <input type="hidden" name="DatePosted" value="@DateTime.Now" />
+            <input class="form-control" type="text" name="Title" placeholder="Title" />
             <br />
-            <textarea class="form-control" type="text" name="qvm.Question.Text" placeholder="Question"></textarea>
+            <textarea class="form-control" type="text" name="Text" placeholder="Question"></textarea>
             <br />
-            <label>Tag</label>
-            <div id="tag-div">
-                <input name="qvm.Tags[0]" />
-                <button type="button" id="add-tag">Add Tag</button>
-            </div>
+                <label for="tagPlaces" class="col-sm-2 control-label">Tags:</label>
+                <div class="row" style="margin-top:15px">
+                    <select multiple class="form-control" id="tags" name="tags"></select>
+                </div>
             <button class="btn btn-primary">Add Question</button>
         </form>
     </div>
 </div>
-@section Scripts{
-    <script src="~/js/AddTag.js"></script>
+@section scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
+    <script>
+        $(() => {
+            $("#tags").tagsinput();
+        })
+    </script>
+}
+
+@section styles {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" />
 }

@@ -10,5 +10,7 @@ namespace StackOverFlow.Models
     {
         public Question Question { get; set; }
         public List<Tag> Tags { get; set; }
+        public bool AlreadyLiked { get; set; }
+        public bool LoggedOn { get; set; }
     }
 }

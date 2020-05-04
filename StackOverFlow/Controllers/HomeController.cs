@@ -30,7 +30,8 @@ namespace StackOverFlow.Controllers
             QuestionTagViewModel qvm = new QuestionTagViewModel();
             qvm.Question = qr.GetQuestionById(Id);
             qvm.Tags = qr.GetTagsForQuestionId(Id);
-            Question q = qr.GetQuestionById(Id);
+            qvm.AlreadyLiked = qr.IsQuestionLikedByUser(Id,qr.GetUserByEmail(User.Identity.Name).Id);
+            qvm.LoggedOn=(User.Identity.IsAuthenticated);
             return View(qvm);
         }
         public IActionResult GetLikes(int Id)
@@ -61,10 +62,10 @@ namespace StackOverFlow.Controllers
 
         }
         [HttpPost]
-        public IActionResult AskAQuestion(QuestionViewModel qvm)
+        public IActionResult AskAQuestion(Question question, IEnumerable<string> tags )
         {
             QuestionRepository qr = new QuestionRepository(_connectionString);
-            qr.AskQuestion(qvm.Question, qvm.Tags);
+            qr.AskQuestion(question, tags.ToList());
             return View();
 
         }

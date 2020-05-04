@@ -40,12 +40,13 @@ namespace StackOverFlow.Data
                 {
                     return null;
                 }
+                List<Tag> tags = new List<Tag>();
                 foreach(QuestionTags qt in questionTags)
                 {
-                    return context.Tags.Where(t => t.Id == qt.TagId).ToList();
+                    tags.Add(context.Tags.FirstOrDefault(t => t.Id == qt.TagId));
                 }
 
-                return null;
+                return tags;
             }
         }
         public int GetLikesCountForId(int Id)
@@ -70,6 +71,21 @@ namespace StackOverFlow.Data
             using (var context = new QuestionContext(_connectionString))
             {
                 return context.Answers.Where(a => a.QuestionId == Id).ToList();
+            }
+        }
+        public bool IsQuestionLikedByUser(int questionId, int userId)
+        {
+            using (var context = new QuestionContext(_connectionString))
+            {
+                Likes l  = context.Likes.FirstOrDefault(likes => likes.QuestionId == questionId && likes.UserId == userId);
+                if(l is null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
         }
         public void AddUser(User u, string PassWord)

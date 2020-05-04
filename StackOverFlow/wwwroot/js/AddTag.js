@@ -1,8 +1,7 @@
-﻿var count = 1;
+﻿let count = 1;
 $(() => {
     $("#add-tag").on('click', function () {
-        console.log('Here in the add tag')
-        $("#tag-div").append(`<br/><input name=qvm.Tags[${count}]/>`);
+        $("#tag-div").append(`<br/><input name=tags[${count}]/>`);
         count++;
     })
 })
