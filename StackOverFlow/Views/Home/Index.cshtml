@@ -1,0 +1,16 @@
+﻿@using StackOverFlow.Data;
+@model List<Question>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <br />
+        <br />
+        @foreach (Question q in Model)
+        {
+            <div class="well">
+                <a href="/Home/Question?Id=@q.Id"><h1>@q.Title</h1></a>
+                <h5>Listed on @q.DatePosted.ToShortDateString()</h5>
+            </div>
+        }
+    </div>
+</div>

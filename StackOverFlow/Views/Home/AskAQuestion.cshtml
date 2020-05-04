@@ -1,0 +1,23 @@
+﻿<br />
+<br />
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 well">
+
+        <form method="post" action="/home/AskAQuestion">
+            <input type="hidden" name="qvm.Question.DatePosted" value="@DateTime.Now" />
+            <input class="form-control" type="text" name="qvm.Question.Title" placeholder="Title" />
+            <br />
+            <textarea class="form-control" type="text" name="qvm.Question.Text" placeholder="Question"></textarea>
+            <br />
+            <label>Tag</label>
+            <div id="tag-div">
+                <input name="qvm.Tags[0]" />
+                <button type="button" id="add-tag">Add Tag</button>
+            </div>
+            <button class="btn btn-primary">Add Question</button>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/js/AddTag.js"></script>
+}

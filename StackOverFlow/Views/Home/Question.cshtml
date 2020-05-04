@@ -1,0 +1,60 @@
+﻿@using StackOverFlow.Data;
+@model QuestionTagViewModel
+<div class="row">
+    <div class="col-lg-8">
+        <h1>@Model.Question.Title</h1>
+        <hr>
+        <p><span class="glyphicon glyphicon-time"></span> Posted on @Model.Question.DatePosted.ToLongDateString()</p>
+        <p>@Model.Question.Text</p>
+        <hr>
+        <hr>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <button id="button" value="@Model.Question.Id"><img width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI8AAAB6CAMAAACx4vALAAAAbFBMVEXmAAD//////Pz61NT85OT96enpLi7+9vb0nJzuaWn+8/P5y8v2s7P0oaH/+fnoIiLrRETnCgrzlpbtV1fvd3foFRX1p6f72dnuZWXqNTX3urrvcnLtXl72rKzsSUnyjo7xg4P4w8PqOzvsT0+/e4JbAAAEgklEQVR4nM2c2ZaqMBBFEyZlkElQVFpB//8fW1QQISGpJEDO6+112JKpUlVchOkyPPOcXmInylGSR9fiFvi2MfH3RA/bD27FNcoTlEdOfEnPpjflgWj/sDG37ilHv0qcMvU9bhjPT0snGXjkJ3drboA8VvoY+nSKU4uLxkpjmkXyoHkQeXyXZvRR6bPGzfBLhofrc/L4BcOp0b6exKn3HB4FgWjEY2ccTq/fRx81i/V+W2U2i+dvOIXpyg8UnAPA42+Sx+b9YW/tRz+v8eAZqq/cX48fHvMEskLoNJ4BPtjDpPGcI6DV830HA5yAf6xaRWcyzw7s1Gj7g7MV8tiReAIhK4T6s/og6BGMeURx+mYKPFoeX9gKoXb8zxIe/i+P7Uh4Re+d0YIvh68cu88T8hwRdJVh48E6sKZVhD0e0XnYaiu8tL46fHmOMm+6UWRiU9rj2PHATgmSCiw34o3clkdmbbW6KfDwPzywA3A+7d885tocncwXT7U2Rqeq4ZHaxtTqubEiiUNHvYInD2+8vIQyjDxoPDenTh4yqfe+FZSYSKfp85xAKF0b4Ucp0mVzfmuPdJrOzwmN9NkNG0UIfl+aU3rRNNJp+2lo9HpDuXbzWebipV53zfbDEukUbjwjRCR7jVOrA5JJAqhXjY46LfjIQlKZDdWKPWTIpSXU6hk/Y50CsuZ+Ua8N8dXr/uXd18boVBh63ZeD1/1dRbpFjbwXj6HLgFWf/I9YYl69jh8eW48Y6NLlD1Uk26SVmx2PFimgSy//rEHQEdk9Hnv9Jbb7qV+snuW4D+o7a5/y5oBn5SndVRm7etzfmjjuZsRjrHjRSL4172/9NFwtcM17VfNefVm6YiSqfkW4X39fadHfMIVnnTmdYSoPrpbH+dRNyTwKKoVAPQbdXwMe47IsTjlsRhv2/2wWBSpHfW2j/ihDvjDLrWLcqjfuHzMWm0MuoXOQ0M+2qZbBuZB69Ej9fsYiQBWxZZDcD7lAgL8jPpjWnzl71uxMfi61f7WeNW3m1JTH0vtp/RlP+8ikPZXOg+3ZQurRpszFgzczRYwZtdl4mmemZbadbA2e5JljmdEWFhcPvIOUoSt9JnPxYEvp8VqQGnBBPEpPs4z9NQCTB9TOPKlk2OssyANvISaKvidDebClAMjh+yiBiwfLNwllIfshAJ5QMge75cTh5cFyZQ5a578EDz5eRWkc1iYoxAP9+KBTzDeTwTw4rERw2HuyKI9QZaHinckiPLiGRo2UsF0VDz6CtsbR5xnKebAFSZ3XUHc4DyDjkEMWljAPd04mPsK9RXg479OgbUeKh+t7hP3ULUI1DzvzSUjtzMnDApq68s3CM52sFn07EjxTAUgJOyPU8OAzLc4XHiw5HtrtdS+BI8VD7rR4QD+5VseDg3G3aQwKdxTzjAMiR+SQUMcz2oeEDgmFPIMcUS1rJ82D+6c9NBqcg6fXoHdj//X8PNhu/xsAV+xIV82DPy2eJ5l9sJUKns9GDbiF0qWE59Wvw5NtYksNT5hRyjVgqeHBnsyZ3tc/CbA1qM/8LBIAAAAASUVORK5CYII=" /></button>
+        }
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <button disabled="disabled" value="@Model.Question.Id"><img width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI8AAAB6CAMAAACx4vALAAAAbFBMVEXmAAD//////Pz61NT85OT96enpLi7+9vb0nJzuaWn+8/P5y8v2s7P0oaH/+fnoIiLrRETnCgrzlpbtV1fvd3foFRX1p6f72dnuZWXqNTX3urrvcnLtXl72rKzsSUnyjo7xg4P4w8PqOzvsT0+/e4JbAAAEgklEQVR4nM2c2ZaqMBBFEyZlkElQVFpB//8fW1QQISGpJEDO6+112JKpUlVchOkyPPOcXmInylGSR9fiFvi2MfH3RA/bD27FNcoTlEdOfEnPpjflgWj/sDG37ilHv0qcMvU9bhjPT0snGXjkJ3drboA8VvoY+nSKU4uLxkpjmkXyoHkQeXyXZvRR6bPGzfBLhofrc/L4BcOp0b6exKn3HB4FgWjEY2ccTq/fRx81i/V+W2U2i+dvOIXpyg8UnAPA42+Sx+b9YW/tRz+v8eAZqq/cX48fHvMEskLoNJ4BPtjDpPGcI6DV830HA5yAf6xaRWcyzw7s1Gj7g7MV8tiReAIhK4T6s/og6BGMeURx+mYKPFoeX9gKoXb8zxIe/i+P7Uh4Re+d0YIvh68cu88T8hwRdJVh48E6sKZVhD0e0XnYaiu8tL46fHmOMm+6UWRiU9rj2PHATgmSCiw34o3clkdmbbW6KfDwPzywA3A+7d885tocncwXT7U2Rqeq4ZHaxtTqubEiiUNHvYInD2+8vIQyjDxoPDenTh4yqfe+FZSYSKfp85xAKF0b4Ucp0mVzfmuPdJrOzwmN9NkNG0UIfl+aU3rRNNJp+2lo9HpDuXbzWebipV53zfbDEukUbjwjRCR7jVOrA5JJAqhXjY46LfjIQlKZDdWKPWTIpSXU6hk/Y50CsuZ+Ua8N8dXr/uXd18boVBh63ZeD1/1dRbpFjbwXj6HLgFWf/I9YYl69jh8eW48Y6NLlD1Uk26SVmx2PFimgSy//rEHQEdk9Hnv9Jbb7qV+snuW4D+o7a5/y5oBn5SndVRm7etzfmjjuZsRjrHjRSL4172/9NFwtcM17VfNefVm6YiSqfkW4X39fadHfMIVnnTmdYSoPrpbH+dRNyTwKKoVAPQbdXwMe47IsTjlsRhv2/2wWBSpHfW2j/ihDvjDLrWLcqjfuHzMWm0MuoXOQ0M+2qZbBuZB69Ej9fsYiQBWxZZDcD7lAgL8jPpjWnzl71uxMfi61f7WeNW3m1JTH0vtp/RlP+8ikPZXOg+3ZQurRpszFgzczRYwZtdl4mmemZbadbA2e5JljmdEWFhcPvIOUoSt9JnPxYEvp8VqQGnBBPEpPs4z9NQCTB9TOPKlk2OssyANvISaKvidDebClAMjh+yiBiwfLNwllIfshAJ5QMge75cTh5cFyZQ5a578EDz5eRWkc1iYoxAP9+KBTzDeTwTw4rERw2HuyKI9QZaHinckiPLiGRo2UsF0VDz6CtsbR5xnKebAFSZ3XUHc4DyDjkEMWljAPd04mPsK9RXg479OgbUeKh+t7hP3ULUI1DzvzSUjtzMnDApq68s3CM52sFn07EjxTAUgJOyPU8OAzLc4XHiw5HtrtdS+BI8VD7rR4QD+5VseDg3G3aQwKdxTzjAMiR+SQUMcz2oeEDgmFPIMcUS1rJ82D+6c9NBqcg6fXoHdj//X8PNhu/xsAV+xIV82DPy2eJ5l9sJUKns9GDbiF0qWE59Wvw5NtYksNT5hRyjVgqeHBnsyZ3tc/CbA1qM/8LBIAAAAASUVORK5CYII=" /></button>
+
+        }<br />
+
+        <input type="hidden" value="@Model.Question.Id" id="QuestionId" />
+        <h5 id="likes">0</h5>
+        <label>Tags:</label>
+        @foreach (Tag t in Model.Tags)
+        {
+            <p>@t.Name</p>
+        }
+        <div class="well">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <h4>Leave an Answer</h4>
+                <form role="form" method="post" action="/home/AddAnswer">
+                    <input type="hidden" value="@Model.Question.Id" name="QuestionId" />
+                    <input type="hidden" value="@DateTime.Now" name="DatePosted" />
+                    <br />
+                    <div class="form-group">
+                        <textarea id="content" placeholder="What is your Answer??" class="form-control" rows="3" name="Text"></textarea>
+                    </div>
+                    <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            }
+
+        </div>
+        <hr>
+        @foreach (Answers a in Model.Question.Answers)
+        {
+            <div class="media">
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <small>@a.DatePosted.ToShortDateString()</small>
+                    </h4>
+                    @a.Text
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section Scripts{
+    <script src="~/js/Likes.js"></script>
+}

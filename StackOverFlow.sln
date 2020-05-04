@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackOverFlow", "StackOverFlow\StackOverFlow.csproj", "{4D0A8D9A-3905-4EA9-B4BA-FD5267CB9AF3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackOverFlow.Data", "StackOverFlow.Data\StackOverFlow.Data.csproj", "{702216A5-50DA-421B-A8BF-95ED55C07AE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D0A8D9A-3905-4EA9-B4BA-FD5267CB9AF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D0A8D9A-3905-4EA9-B4BA-FD5267CB9AF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D0A8D9A-3905-4EA9-B4BA-FD5267CB9AF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D0A8D9A-3905-4EA9-B4BA-FD5267CB9AF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{702216A5-50DA-421B-A8BF-95ED55C07AE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{702216A5-50DA-421B-A8BF-95ED55C07AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{702216A5-50DA-421B-A8BF-95ED55C07AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{702216A5-50DA-421B-A8BF-95ED55C07AE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0D37CBD-A8B6-45DD-B454-F14C862BAEED}
+	EndGlobalSection
+EndGlobal
